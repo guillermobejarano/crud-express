@@ -1,9 +1,9 @@
 import {Router} from 'express';
-import {ArticleController} from '../../controllers';
-import { ArticleService } from '../../services';
+import {CommentController} from '../../controllers';
+import { CommentService } from '../../services';
 
-const articlesApi = (router: Router) => {
-    const ac = new ArticleController(new ArticleService());
+const commentsApi = (router: Router) => {
+    const ac = new CommentController(new CommentService());
     router.get('/', ac.fetch.bind(ac));
     router.post('/', ac.create.bind(ac));
     router.get('/:id', ac.find.bind(ac));
@@ -13,4 +13,4 @@ const articlesApi = (router: Router) => {
     return router;
 };
 
-export default articlesApi;
+export default commentsApi;

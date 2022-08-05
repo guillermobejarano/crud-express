@@ -1,0 +1,13 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const api_1 = __importDefault(require("./api"));
+class Routes {
+    static configure(app) {
+        app.use('/api', (0, api_1.default)((0, express_1.Router)()));
+    }
+}
+exports.default = Routes;
