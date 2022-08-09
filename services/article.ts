@@ -7,12 +7,10 @@ export default class ArticleService {
     }
 
     public get(id: string) {
-        console.log('artService.get');
         return ArticleModel.findById(id).lean().exec();
     }
 
     public create(article: any) {
-        console.log('ArticleService.create');
         return ArticleModel.create(article);
     }
 

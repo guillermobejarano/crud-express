@@ -14,11 +14,15 @@ export default class CommentService {
         return CommentModel.create(article);
     }
 
-    public update (id: string, article: any) {
+    public update(id: string, article: any) {
         return CommentModel.findByIdAndUpdate(id, article).lean().exec();
     }
 
-    public remove (id: string) {
+    public remove(id: string) {
         return CommentModel.findByIdAndRemove(id).lean().exec();
+    }
+
+    public removeAllByPropery(id: string, nameProperty: string) {
+        return CommentModel.deleteMany({ nameProperty: id}).lean().exec();
     }
 }
