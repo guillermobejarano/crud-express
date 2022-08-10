@@ -6,6 +6,10 @@ export default class CommentService {
         return CommentModel.find({}).lean().exec();
     }
 
+    public getByArticleId(id: string) {
+        return CommentModel.find({ articleId : id }).populate('articleId').lean().exec();
+    }
+
     public get(id: string) {
         return CommentModel.findById(id).lean().exec();
     }
