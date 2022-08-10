@@ -9,6 +9,12 @@ npm start
 npm run tests
 
 ```
+Start a MongoDB instance locally with Docker.
+
+```bash
+docker run -d --name mongo -v mongo:/data -p 27017:27017 mongo
+```
+
 ## Tests
 
 ```bash
