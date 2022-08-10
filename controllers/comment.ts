@@ -9,7 +9,11 @@ export default class CommentController {
 
     public async fetch(req: Request, res: Response, next: NextFunction) {
         try {
-            res.send(await this._commentService.fetch());
+            if (req.query.article) {
+                res.send(await this._commentService.getByArticleId(req.query.article as string));
+            } else {
+                res.send(await this._commentService.fetch());
+            }            
         } catch (error) {
             next(error);
         }        
